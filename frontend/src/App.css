@@ -1,0 +1,110 @@
+body{
+margin:0;
+font-family:"Inter",sans-serif;
+background:linear-gradient(135deg,#e0f2fe,#f8fafc);
+height:100vh;
+}
+
+.app{
+display:flex;
+height:100vh;
+width:100vw;
+}
+
+/* LEFT SIDE */
+
+.left-panel{
+width:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+/* RIGHT SIDE */
+
+.right-panel{
+width:100%;
+padding:50px;
+overflow:auto;
+flex:1;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+
+/* Upload Card */
+
+.upload-card{
+background:white;
+padding:50px;
+border-radius:16px;
+box-shadow:0 12px 30px rgba(0,0,0,0.08);
+width:420px;
+text-align:center;
+}
+
+/* Drag Area */
+
+.drop-area{
+display:block;
+border:2px dashed #3b82f6;
+padding:45px;
+border-radius:12px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.drop-area:hover{
+background:#eff6ff;
+}
+
+.drop-area h3{
+margin:0;
+color:#2563eb;
+}
+
+.drop-area p{
+margin-top:8px;
+color:#64748b;
+}
+
+.file-name{
+margin-top:15px;
+color:#16a34a;
+font-weight:600;
+}
+
+/* Button */
+
+.analyze-btn{
+margin-top:25px;
+padding:14px 40px;
+border:none;
+border-radius:10px;
+background:#2563eb;
+color:white;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.analyze-btn:hover{
+background:#1d4ed8;
+}
+
+/* Result */
+
+.result-card{
+  background:white;
+  padding:40px;
+  border-radius:16px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.08);
+  max-width:700px;
+  color:black;
+}
+
+.result-card h2{
+color:#1e3a8a;
+margin-bottom:20px;
+}
