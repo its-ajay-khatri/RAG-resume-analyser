@@ -1,0 +1,8 @@
+langchain==1.0.8
+langchain-community
+faiss-cpu
+sentence-transformers
+pypdf
+pytesseract
+pillow
+ollama
