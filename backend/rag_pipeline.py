@@ -34,14 +34,14 @@ Best Suitable Roles:
 
 def run_rag_pipeline(text):
 
-    splitter = RecursiveCharacterTextSplitter(
+    splitter = RecursiveCharacterTextSplitter(                          #recursive textsplitter and chunk size with overlapping 
         chunk_size=500,
         chunk_overlap=50
     )
 
     docs = splitter.create_documents([text])
 
-    embeddings = HuggingFaceEmbeddings(
+    embeddings = HuggingFaceEmbeddings(                                  #import huggingphase embadding model
         model_name="all-MiniLM-L6-v2"
     )
 
@@ -60,10 +60,10 @@ def run_rag_pipeline(text):
         input_variables=["context"]
     )
 
-    llm = Ollama(model="llama3.2:3b")                          #call the LLM
+    llm = Ollama(model="llama3.2:3b")                                    #call the LLM
 
     final_prompt = prompt.format(context=context)
 
-    response = llm.invoke(final_prompt)                        #feed retrivals to LLM for generation
+    response = llm.invoke(final_prompt)                                  #feed retrivals to LLM for generation
 
     return response

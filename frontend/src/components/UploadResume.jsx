@@ -16,7 +16,7 @@ function UploadResume({ setResult }) {
     setLoading(true)
 
     const res = await axios.post(
-      `http://localhost:8000/analyze-resume`,
+      `${import.meta.env.VITE_API_URL}/analyze-resume`,
       formData
     )
 
@@ -53,8 +53,9 @@ function UploadResume({ setResult }) {
       </label>
 
       <button
-        className="analyze-btn"
+        className={loading ? "analyze-btn-disabled" : "analyze-btn"}
         onClick={handleUpload}
+        disabled={loading}
       >
         {loading ? "Analyzing Resume..." : "Analyze Resume"}
       </button>
