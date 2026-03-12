@@ -45,25 +45,25 @@ def run_rag_pipeline(text):
         model_name="all-MiniLM-L6-v2"
     )
 
-    vector_store = FAISS.from_documents(docs, embeddings)
+    vector_store = FAISS.from_documents(docs, embeddings)                #stores vector files like .faiss, .pkl in memory/RAM
 
-    retriever = vector_store.as_retriever(search_kwargs={"k": 5})
+    retriever = vector_store.as_retriever(search_kwargs={"k": 5})        #feed the vectors along with prompt to fetch the retrival
 
     query = "Analyze this resume"
 
-    retrieved_docs = retriever.invoke(query)
+    retrieved_docs = retriever.invoke(query)                             #analyise the KNNs and generated the retrival contexts
 
     context = "\n\n".join([d.page_content for d in retrieved_docs])
 
-    prompt = PromptTemplate(
+    prompt = PromptTemplate(                                   
         template=prompt_template,
         input_variables=["context"]
     )
 
-    llm = Ollama(model="llama3.2:3b")
+    llm = Ollama(model="llama3.2:3b")                          #call the LLM
 
     final_prompt = prompt.format(context=context)
 
-    response = llm.invoke(final_prompt)
+    response = llm.invoke(final_prompt)                        #feed retrivals to LLM for generation
 
     return response
